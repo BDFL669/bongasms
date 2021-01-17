@@ -77,7 +77,7 @@ class Sms
         $data = array(
             'apiClientID' => $this->client,
             'key'         => $this->key,
-            'secret'      => $this->secet,
+            'secret'      => $this->secret,
             'txtMessage'  => $message,
             'MSISDN'      => $phone,
             'serviceID'   => $service,
