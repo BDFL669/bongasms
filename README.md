@@ -1,4 +1,4 @@
-# bongasms
+# Bonga SMS
 Bonga SMS PHP SDK
 
 ## Installation

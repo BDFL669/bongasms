@@ -15,7 +15,7 @@
             "Osen\\Bonga\\": "src/"
         }
     },
-    "description": "Intuitive and Comprehensive M-PESA SDK for PHP Applications. Just Plug 'N Play",
+    "description": "PHP SDK For Bonga SMS",
     "license": "MIT",
     "minimum-stability": "dev",
     "name": "osenco/bongasms",
