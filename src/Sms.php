@@ -10,13 +10,15 @@ class Sms
 {
     protected $client;
     protected $secret;
+    protected $service;
     protected $key;
 
-    public function __construct($client, $secret, $key)
+    public function __construct($client, $secret, $key, $service = 1)
     {
-        $this->client = $client;
-        $this->secret = $secret;
-        $this->key    = $key;
+        $this->client  = $client;
+        $this->secret  = $secret;
+        $this->key     = $key;
+        $this->service = $service;
     }
 
     /**
@@ -72,7 +74,7 @@ class Sms
      * @param String $MSISDN    Phone Number    Numeric    Mandatory
      * @param String $serviceID    Service ID (Provided above) - Default 1    Numeric    Optional
      */
-    public function send($phone, $message, $service = 1, $callback = null)
+    public function send($phone, $message, $callback = null)
     {
         $data = array(
             'apiClientID' => $this->client,
@@ -80,7 +82,7 @@ class Sms
             'secret'      => $this->secret,
             'txtMessage'  => $message,
             'MSISDN'      => $phone,
-            'serviceID'   => $service,
+            'serviceID'   => $this->service,
         );
 
         $endpoint = "https://app.bongasms.co.ke/api/send-sms-v1";
