@@ -8,7 +8,6 @@ namespace Osen\Bonga;
 
 class Sms
 {
-
     protected $client;
     protected $secret;
     protected $key;
@@ -58,7 +57,7 @@ class Sms
             $curl,
             CURLOPT_HTTPHEADER,
             array(
-                "Content-Type:application/json"
+                "Content-Type:application/json",
             )
         );
 
@@ -139,6 +138,12 @@ class Sms
          * delivery_status_desc SMS delivery status description String Mandatory
          */
         $response = $this->remote_get($endpoint, $data);
+        return is_null($callback) ? $response : call_user_func($callback, array($response));
+    }
+
+    public function parse($payload, $callback = null)
+    {
+        $response = trim($payload);
         return is_null($callback) ? $response : call_user_func($callback, array($response));
     }
 }
