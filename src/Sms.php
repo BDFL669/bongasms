@@ -49,7 +49,7 @@ class Sms
     public function remote_post($endpoint, $data = array())
     {
         $curl        = curl_init();
-        $data_string = json_encode($data);
+        $data_string = http_build_query($data);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
@@ -59,7 +59,7 @@ class Sms
             $curl,
             CURLOPT_HTTPHEADER,
             array(
-                "Content-Type:application/json",
+                "Content-Type:application/x-www-form-urlencoded",
             )
         );
 
